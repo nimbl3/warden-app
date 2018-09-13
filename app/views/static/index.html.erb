@@ -1,27 +1,36 @@
-<% if notice %>
-  <div id="notice" class="alert alert-info" role="alert">
-    <%= notice %>
+<% if current_user %>
+  <% content_for :header do %>
+    <nav class="navbar justify-content-end">
+      <%= link_to 'Logout', session_path(current_user), method: :delete, class: 'btn btn-danger' %>
+    </nav>
+  <% end %>
+
+  <div class="card">
+    <div class="card-body">
+      <h1 class="card-title">Welcome!</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+  </div>
+<% else %>
+  <div class="card mt-5">
+    <div class="card-body">
+      <h1 class="card-title">Welcome to Warden App</h1>
+      <hr>
+      <%= form_tag(sessions_path) do %>
+        <div class="form-group">
+          <%= label_tag :email %>
+          <%= email_field_tag :email, 'yutthana@nimbl3.com', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= label_tag :password %>
+          <%= password_field_tag :password, 'nimbl3', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= label_tag :password_confirmation %>
+          <%= password_field_tag :password_confirmation, 'nimbl3', class: 'form-control' %>
+        </div>
+        <%= submit_tag 'Login', class: 'btn btn-primary' %>
+      <% end %>
+    </div>
   </div>
 <% end %>
-
-<div class="card">
-  <div class="card-body">
-    <h1 class="card-title">Welcome to Warden App</h1>
-    <hr>
-    <%= form_tag(sessions_path) do %>
-      <div class="form-group">
-        <%= label_tag :email %>
-        <%= email_field_tag :email, 'yutthana@nimbl3.com', class: 'form-control' %>
-      </div>
-      <div class="form-group">
-        <%= label_tag :password %>
-        <%= password_field_tag :password, 'nimbl3', class: 'form-control' %>
-      </div>
-      <div class="form-group">
-        <%= label_tag :password_confirmation %>
-        <%= password_field_tag :password_confirmation, 'nimbl3', class: 'form-control' %>
-      </div>
-      <%= submit_tag 'Login', class: 'btn btn-primary' %>
-    <% end %>
-  </div>
-</div>
