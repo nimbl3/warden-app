@@ -1,21 +1,27 @@
+<% if notice %>
+  <div id="notice" class="alert alert-info" role="alert">
+    <%= notice %>
+  </div>
+<% end %>
+
 <div class="card">
   <div class="card-body">
     <h1 class="card-title">Welcome to Warden App</h1>
     <hr>
-    <form>
+    <%= form_tag(sessions_path) do %>
       <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" id="email" class="form-control">
+        <%= label_tag :email %>
+        <%= email_field_tag :email, 'yutthana@nimbl3.com', class: 'form-control' %>
       </div>
       <div class="form-group">
-        <label for="password">Password:</label>
-        <input type="password" id="password" class="form-control">
+        <%= label_tag :password %>
+        <%= password_field_tag :password, 'nimbl3', class: 'form-control' %>
       </div>
       <div class="form-group">
-        <label for="password_confirmation">Confirm Password:</label>
-        <input type="password" id="password_confirmation" class="form-control">
+        <%= label_tag :password_confirmation %>
+        <%= password_field_tag :password_confirmation, 'nimbl3', class: 'form-control' %>
       </div>
-      <button type="submit" class="btn btn-primary">Login</button>
-    </form>
+      <%= submit_tag 'Login', class: 'btn btn-primary' %>
+    <% end %>
   </div>
 </div>
