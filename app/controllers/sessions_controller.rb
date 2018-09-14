@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
     request.env['warden'].authenticate!
     redirect_to root_url, notice: 'Logged in!'
   end
+
   def destroy
     request.env['warden'].logout
     redirect_to root_url, notice: 'Logged out!'

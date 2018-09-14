@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+
     if @user.save
       request.env['warden'].set_user(@user)
       redirect_to root_path, notice: 'Logged in!'
