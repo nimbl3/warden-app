@@ -1,6 +1,12 @@
 # README
 
-Simple Rails authentication app build with Warden
+Simple Rails authentication app built with Warden
+
+## Setup and run the app
+
+- `bundle install`
+- `bundle exec rake db:setup`
+- `rails s -b 0.0.0.0`
 
 ## About Warden
 Warden provides the authentication mechanism for Rack-based Ruby application.
@@ -55,8 +61,3 @@ request.env['warden'].authenticate!
 request.env['warden'].user
 request.env['warden'].logout
 ```
-
-## Setup and run the app
-
-- `bundle install`
-- `rails s -b 0.0.0.0`
