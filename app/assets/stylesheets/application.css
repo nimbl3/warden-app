@@ -13,6 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
 body {
   height: 100vh;
+}
+
+.card {
+  max-width: 50rem;
+  margin: auto;
 }

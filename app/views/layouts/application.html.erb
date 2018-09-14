@@ -19,12 +19,12 @@
     <main>
       <%= yield :header %>
       <% if notice %>
-        <div class="alert alert-info" role="alert">
+        <div class="alert alert-info dismissible" role="alert">
           <%= notice %>
         </div>
       <% end %>
       <% if alert %>
-        <div class="alert alert-danger" role="alert">
+        <div class="alert alert-danger dismissible" role="alert">
           <%= alert %>
         </div>
       <% end %>
